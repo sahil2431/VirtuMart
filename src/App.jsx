@@ -18,19 +18,10 @@ import Layout from "./Layout"
 import {
   Login,
   SignUp,
-  UserDashboard,
-  AccountInfo,
   DeleteAccount,
-  EditDetails,
-  UpdatePassword,
-  ProductPage,
   NotLoggedIn,
-  CartPage,
-  AllOrders,
-  WishlistPage,
   Address,
   AddAddress,
-  OrderPage,
   Verify,
   ErrorPage,
   Loading,
@@ -45,7 +36,15 @@ import {
   Home,
   About,
   Contact,
-  ProductsPage
+  ProductsPage,
+  WishlistPage,
+  AccountInfo,
+  UserDashboard,
+  UpdatePassword,
+  ProductDetailsPage,
+  AllOrders,
+  OrderPage,
+  CartPage
 } from "./pages/index"
 
 function App() {
@@ -66,9 +65,8 @@ function App() {
           <Route path="profile/:userName/:userId" element = {<UserDashboard/>} />
           <Route path="accountInformation/:userName/:userId" element={<AccountInfo />} />
           <Route path="deleteAccount/:userName" element = {<DeleteAccount />}/>
-          <Route path="updateAccountDetails/:userName/:userId" element = {<EditDetails />}/>
           <Route path="updatePassword/:userName/:userId" element = {<UpdatePassword />}/>
-          <Route path="productDetails" element = {<ProductPage/>}/>
+          <Route path="productDetails" element = {<ProductDetailsPage/>}/>
           <Route path="loginError" element={<NotLoggedIn/>} />
           <Route path="cart/:userName/:userId" element={<CartPage/>} />
           <Route path="products" element={<ProductsPage/>} />

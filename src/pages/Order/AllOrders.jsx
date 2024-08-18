@@ -1,8 +1,9 @@
 import React , {useState , useEffect} from 'react'
 import { getAllOrders } from '../../features/api/order'
-import OrdersCard from './OrdersCard'
-import Loading from '../Loading'
-
+import {
+  OrdersCard,
+  Loading
+} from "../../components/index"
 const AllOrders = () => {
     const [orders, setOrders] = useState([])
     const [ordersFetched , setOrdersFetched] = useState(false)

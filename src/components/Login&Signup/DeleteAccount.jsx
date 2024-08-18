@@ -46,8 +46,11 @@ const DeleteAccount = () => {
         onClick={handleDeleteAccount}
         >Delete Account
         </button>
-        <BackBtn/>
       </form>
+      <div className='flex justify-center items-center my-5'>
+
+        <BackBtn/>
+      </div>
 
     </div>
   )

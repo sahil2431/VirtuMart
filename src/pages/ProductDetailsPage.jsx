@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Loading from '../Loading';
 import { Link, useLocation } from 'react-router-dom';
-import ProductNotFound from '../Error/ProductNotFound';
-import { getProductDetails } from '../../features/productSlice';
-import ProductDetail from './ProductDetail';
-import Reviews from './Reviews';
-import UserReviewfField from './UserReviewfField';
-const ProductPage = () => {
+import { getProductDetails } from '../features/productSlice';
+import {
+  ProductDetail,
+  Reviews,
+  UserReviewfField,
+  ProductNotFound,
+  Loading
+} from "../components/index"
+
+const ProductDetailsPage = () => {
     const {isLoggedIn , user} = useSelector((state) => state.auth);
     const {product , isLoading} = useSelector((state) => state.product)
     const [productFetched , setProductFetched] = useState(false)
@@ -51,4 +54,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default ProductDetailsPage;

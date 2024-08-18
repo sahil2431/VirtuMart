@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { getCart } from "../../features/api/cart";
 import { useNavigate } from "react-router-dom";
-import AddressCard from "../Address/AddressCard";
-import BackBtn from "../BackBtn";
 import { addOrder } from "../../features/api/order";
 import { createOrder, verifyPayment } from "../../features/api/payment";
 import {toast} from "react-toastify"
 import { useSelector } from "react-redux";
-
+import {
+  AddressCard,
+  BackBtn
+} from "../../components/index"
 
 const OrderPage = () => {
   const {user} = useSelector((state) => state.auth)
@@ -47,7 +48,7 @@ const OrderPage = () => {
     }
     setIsLoading(false);
     const options = {
-      key: import.meta.env.VITE_RAZORPAY_KEY_ID || "rzp_test_09YvszOhidVs4D",
+      key: import.meta.env.VITE_RAZORPAY_KEY_ID ,
       amount: cartValue * 100,
       currency: "INR",
       name: "VirtuMart",

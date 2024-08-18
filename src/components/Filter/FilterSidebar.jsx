@@ -29,7 +29,6 @@ const FilterSidebar = ({
   const navigate = useNavigate()
   
   const handleApply = () => {
-    console.log(selectedRating)
     let price = {}
     let rating = {}
     let availability = false

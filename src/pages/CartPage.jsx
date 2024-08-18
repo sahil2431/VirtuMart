@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getCart, removeItem } from "../../features/api/cart";
-import { updateQuantity } from "../../features/api/cart";
-
+import { getCart , removeItem , updateQuantity} from "../features/api/cart";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
@@ -10,7 +8,7 @@ import {
   Quantity,
   RemoveBtn,
   BackBtn
-} from "../index"
+} from "../components/index"
 
 
 const CartPage = () => {
@@ -29,11 +27,11 @@ const CartPage = () => {
         setcartValue(data.cartValue);
         setCartFetched(true);
       };
-      if (cart.length > 0) {
+      
         setTimeout(() => {
           setIsLoading(false);
-        }, 2000);
-      }
+        }, 5000);
+      
       fetchCart();
       if(!cartFetched) setcart([])
   }, [cartFetched]);
@@ -56,7 +54,9 @@ const CartPage = () => {
 
   const sortedCart = cart.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
-  
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="bg-gray-800 min-h-[64vh] ">
@@ -66,11 +66,11 @@ const CartPage = () => {
           Product Removed Successfully
         </div>
       )}
-      {!isLoading && cart.length === 0 && (
+      {!isLoading && cart.length === 0 ? (
         <div className="text-red-500 text-center font-bold text-3xl p-3 flex items-center justify-center h-[58vh]">
           <h1>Your cart is empty</h1>
         </div>
-      )}
+      ) : ""}
       <div className="h-14">
       
       </div>

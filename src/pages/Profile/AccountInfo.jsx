@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import NotLoggedIn from "../Login&Signup/NotLoggedIn";
-import BackBtn from "../BackBtn"
+import NotLoggedIn from "../../components/Login&Signup/NotLoggedIn";
+import BackBtn from "../../components/BackBtn"
 
 const AccountInfo = () => {
   const { isLoggedIn, user } = useSelector((state) => state.auth);
@@ -15,12 +15,12 @@ const AccountInfo = () => {
         <div className="flex gap-2 justify-between text-xl font-semibold">
           <span className="">Name </span>
           <span className="w-[250px]">{user.name}</span>
-          </div>
-          <div className="flex gap-2 justify-between text-xl font-semibold">
+        </div>
+        <div className="flex gap-2 justify-between text-xl font-semibold">
           <span className="">UserId </span>
           <span className="w-[250px]">{user.userId}</span>
-          </div>
-          <div className="flex gap-2 justify-between text-xl font-semibold">
+        </div>
+        <div className="flex gap-2 justify-between text-xl font-semibold">
           <span className="">E-mail </span>
           <span className="w-[249px]">{user.email}</span>
         </div>
@@ -32,7 +32,7 @@ const AccountInfo = () => {
       </div>
       <div className='text-center p-10'>
             <BackBtn/>
-            </div>
+      </div>
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import React, { useEffect , useState } from 'react'
-import Card from '../Products/Card'
-import { fetchWishlist, removeProduct } from '../../features/api/wishlist'
-import RemoveBtn from '../Cart/RemoveBtn'
+import Card from '../components/Products/Card'
+import { fetchWishlist, removeProduct } from '../features/api/wishlist'
+import RemoveBtn from '../components/Cart/RemoveBtn'
+import { Loading } from '../components'
 
-const wishlistPage = () => {
+const WishlistPage = () => {
 
     const [wishlist, setWishlist] = useState([])
     const [isLoading, setIsLoading] = useState(true)
@@ -16,7 +17,7 @@ const wishlistPage = () => {
             setWishlist(data);
             setTimeout(() => {
               setIsLoading(false);
-            }, 2000);
+            }, 5000);
             setWishlistFetched(true);
         };
 
@@ -34,6 +35,10 @@ const wishlistPage = () => {
         setIsRemoved(false)
       }, 3000)
       
+    }
+
+    if(isLoading) {
+      return <Loading />
     }
   return (
     <div className="bg-gray-800 min-h-[65vh]">
@@ -78,4 +83,4 @@ const wishlistPage = () => {
   )
 }
 
-export default wishlistPage
+export default WishlistPage

@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { useSelector , useDispatch } from'react-redux'  
 import { Link } from 'react-router-dom';
 import { logout } from '../../features/authSlice';
-import NotLoggedIn from '../Login&Signup/NotLoggedIn';
-import BackBtn from "../BackBtn"
+import NotLoggedIn from '../../components/Login&Signup/NotLoggedIn';
+import BackBtn from "../../components/BackBtn"
 const UserDashboard = () => {
 
   const {isLoggedIn , user} = useSelector((state) => state.auth);
@@ -35,13 +35,7 @@ const UserDashboard = () => {
                 {" "}
                 <li>Profile Deatails</li>
               </Link>
-              <Link
-                to={`/updateAccountDetails/${user.userId}/${user._id}`}
-                label="Update Account Details"
-              >
-                {" "}
-                <li>Edit Profile Details</li>
-              </Link>
+              
               <Link
                 to={`/updatePassword/${user.userId}/${user._id}`}
                 label="Update Password"
@@ -62,6 +56,13 @@ const UserDashboard = () => {
               >
                 {" "}
                 <li>Orders</li>
+              </Link>
+              <Link
+                to={`/wishlists/${user?.userId}/${user?._id}`}
+                label="Wishlist"
+              >
+                {" "}
+                <li>Wishlist</li>
               </Link>
               <div className="logout flex flex-col gap-5">
 
