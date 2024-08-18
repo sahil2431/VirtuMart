@@ -54,7 +54,7 @@ const Home = () => {
       </div>
 
       <div>
-        {categories.length > 0 && <div className="flex justify-center items-center p-5">
+        {categories.length > 0 && <div className="flex flex-wrap justify-center items-center p-5">
           <CategoryButton text="All" categoryId={"all"} />
           {categories.map((category) => 
           <CategoryButton key={category._id} text={category.name} categoryId={category._id}/>
