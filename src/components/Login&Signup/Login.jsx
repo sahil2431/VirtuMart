@@ -40,11 +40,11 @@ const Login = () => {
         {isLoggedIn && (
           <div className="text-green-500 text-lg">You are logged in</div>
         )}
-        <h1 className="font-bold text-4xl w-1/2 ">Login</h1>
-        <p className="w-1/2">Welcome back</p>
+        <h1 className="font-bold text-4xl md:w-1/2 w-3/4 ml-[15vw] ">Login</h1>
+        <p className="md:w-1/2 w-3/4 ml-[15vw]">Welcome back</p>
 
         <form
-          className="w-1/2 flex flex-col gap-3"
+          className="md:w-1/2 sm:w-[70vw] w-[80vw] flex flex-col gap-2 ml-[15vw]"
           onSubmit={handleSubmit(onSubmit)}
         >
           <h3 className="text-lg">User Id</h3>
@@ -55,7 +55,7 @@ const Login = () => {
             render={({ field }) => (
               <input
                 {...field}
-                className="text-white w-1/2 rounded-md h-8 bg-slate-700"
+                className="text-white lg:w-1/2 w-3/4 rounded-md h-8 bg-slate-700"
               />
             )}
           />
@@ -71,7 +71,7 @@ const Login = () => {
               <input
                 {...field}
                 type="password"
-                className="text-white w-1/2 rounded-md h-8 bg-slate-700"
+                className="text-white lg:w-1/2 w-3/4 rounded-md h-8 bg-slate-700"
               />
             )}
           />
@@ -79,11 +79,11 @@ const Login = () => {
             <div className="text-red-500">{errors.password.message}</div>
           )}
           <Link to="/forgotPassword">
-            <p className="w-1/2 text-end cursor-pointer text-blue-600">
+            <p className="lg:w-1/2 w-3/4 text-end cursor-pointer text-blue-600">
               Forgot Password
             </p>
           </Link>
-          <div className="butto w-1/2 text-center">
+          <div className="butto lg:w-1/2 w-3/4 text-center">
             <input
               disabled={isSubmitting}
               className="w-1/2 text-center bg-red-900 rounded-md h-8 p-1 cursor-pointer"
@@ -92,11 +92,11 @@ const Login = () => {
             />
           </div>
         </form>
-        <div className="signup w-1/2">
-          <p className="w-1/2 text-end">New User?</p>
+        <div className="signup ml-[15vw] lg:w-1/2 w-3/4">
+          <p className="lg:w-1/2 w-3/4 text-end">New User?</p>
           <Link to="/signup">
             <input
-              className="w-1/2 cursor-pointer text-end text-blue-600"
+              className="lg:w-1/2 w-3/4 cursor-pointer text-end text-blue-600"
               type="button"
               value="SignUp"
             />

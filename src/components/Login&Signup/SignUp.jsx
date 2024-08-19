@@ -32,7 +32,7 @@ const SignUp = () => {
   const navigate = useNavigate()
   if(isLoggedIn) navigate("/")
   return (
-    <div className='p-5 text-white  bg-no-repeat bg-cover bg-fixed bg-[url("https://t3.ftcdn.net/jpg/01/17/33/22/360_F_117332203_ekwDZkViF6M3itApEFRIH4844XjJ7zEb.jpg")] w-scren'>
+    <div className='p-5 text-white  bg-no-repeat bg-cover bg-fixed bg-[url("https://t3.ftcdn.net/jpg/01/17/33/22/360_F_117332203_ekwDZkViF6M3itApEFRIH4844XjJ7zEb.jpg")] w-screen'>
       <div className="flex flex-col justify-center gap-4 items-center min-h-[70vh] '">
         {isLoading && !isSubmitting ? (
           <div className="text-green-500 text-lg">{message}</div>
@@ -43,14 +43,14 @@ const SignUp = () => {
         {error && isRefreshed && (
           <div className="text-red-500 text-lg">{error}</div>
         )}
-        <h1 className="font-bold text-4xl w-1/2 ">SignUp</h1>
+        <h1 className="font-bold text-4xl md:w-1/2 w-3/4 ml-[15vw] ">SignUp</h1>
         <form
-          className="w-1/2 flex flex-col gap-[2px]"
+          className="md:w-1/2 sm:w-[70vw] w-[80vw] flex flex-col gap-[2px] ml-[15vw]"
           onSubmit={handleSubmit(onSubmit)}
         >
           <h3 className="text-lg  ">Name</h3>
           <input
-            className="text-white w-1/2 rounded-md h-8 bg-slate-700 "
+            className="text-white lg:w-1/2 w-3/4 rounded-md h-8 bg-slate-700 "
             {...register("name", {
               required: { value: true, message: "Name is required" },
             })}
@@ -60,7 +60,7 @@ const SignUp = () => {
           )}
           <h3 className="text-lg  ">Email</h3>
           <input
-            className="text-white w-1/2 rounded-md h-8 bg-slate-700 "
+            className="text-white lg:w-1/2 w-3/4 rounded-md h-8 bg-slate-700 "
             type="email"
             {...register("email", {
               required: { value: true, message: "Email is required" },
@@ -71,7 +71,7 @@ const SignUp = () => {
           )}
           <h3 className="text-lg  ">Mobile Number</h3>
           <input
-            className="text-white w-1/2 rounded-md h-8 bg-slate-700 "
+            className="text-white lg:w-1/2 w-3/4 rounded-md h-8 bg-slate-700 "
             type="phone"
             {...register("mobile", {
               required: { value: true, message: "Number is required" },
@@ -82,7 +82,7 @@ const SignUp = () => {
           )}
           <h3 className="text-lg  ">User Id</h3>
           <input
-            className="text-white w-1/2 rounded-md h-8 bg-slate-700 "
+            className="text-white lg:w-1/2 w-3/4 rounded-md h-8 bg-slate-700 "
             type="text"
             {...register("userId", {
               required: { value: true, message: "UserId is required" },
@@ -93,7 +93,7 @@ const SignUp = () => {
           )}
           <h3 className="text-lg  ">Password</h3>
           <input
-            className="text-white w-1/2 rounded-md h-8 bg-slate-700 "
+            className="text-white lg:w-1/2 w-3/4 rounded-md h-8 bg-slate-700 "
             type="password"
             {...register("password", {
               required: { value: true, message: "Password is required" },
@@ -104,7 +104,7 @@ const SignUp = () => {
               {errors.password.message}
             </div>
           )}
-          <div className="butto w-1/2 text-center mt-4">
+          <div className="butto lg:w-1/2 w-3/4 text-center mt-4">
             <input
               disabled={isSubmitting}
               className="w-1/2 text-center bg-red-900 rounded-md h-8 p-1 cursor-pointer"
@@ -117,11 +117,11 @@ const SignUp = () => {
           </div>
         </form>
 
-        <div className="signup w-1/2">
-          <p className="w-1/2 text-end">Already Reagistered?</p>
+        <div className="signup ml-[15vw] lg:w-1/2 w-3/4">
+          <p className="lg:w-1/2 w-3/4 text-end">Already Reagistered?</p>
           <Link to="/login">
             <input
-              className=" w-1/2  cursor-pointer text-end text-blue-600"
+              className=" lg:w-1/2 w-3/4  cursor-pointer text-end text-blue-600"
               type="button"
               value="Login"
             />

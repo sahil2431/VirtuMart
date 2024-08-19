@@ -36,12 +36,12 @@ const ForgotPassword = () => {
       <div className="flex flex-col justify-center gap-5 items-center h-[70vh]">
         {error && <div className="text-red-500 text-lg">{error}</div>}
         {success && <div className="text-green-500 text-lg">{success}</div>}
-      <h1 className="font-bold text-4xl w-1/2 ">Forgot password</h1>
-        <p className="w-1/2">Enter email to send password reset link</p>
-        <div className="w-1/2 flex flex-col gap-3">
+      <h1 className="font-bold text-4xl lg:w-1/2 sm:w-[70vw] w-[80vw] ml-[15vw]">Forgot password</h1>
+        <p className="lg:w-1/2 sm:w-[70vw] w-[80vw] ml-[15vw]">Enter email to send password reset link</p>
+        <div className="md:w-1/2 sm:w-[70vw] w-[80vw] flex flex-col gap-3 ml-[15vw]">
           <input 
           value={email}
-          className="text-white w-1/2 rounded-md h-8 bg-slate-700"
+          className="text-white lg:w-1/2 w-3/4 rounded-md h-8 bg-slate-700"
           onChange={(e) => setEmail(e.target.value)}
           type="email" 
           name="" 
@@ -49,7 +49,7 @@ const ForgotPassword = () => {
 
           <input 
           onClick={handleEmailSend}
-          className="w-1/2 text-center bg-red-900 rounded-md h-8 p-1 cursor-pointer"
+          className="lg:w-1/2 w-3/4 text-center bg-red-900 rounded-md h-8 p-1 cursor-pointer"
           type="button" 
           value="Send Link" />
 
