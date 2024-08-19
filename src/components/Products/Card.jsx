@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 const Card = ({
   product,
+  imageWidth = "w-72",
   width = "w-72",
   className ,
   height = "h-96",
@@ -27,7 +28,7 @@ const Card = ({
     <div className={`m-5 card ${className} bg-gray-300 text-black rounded-md ${height} ${width} cursor-pointer`}>
       <img
         src={product.images[0]}
-        className={`${imageHeight} w-72 object-cover p-3`}
+        className={`${imageHeight} ${imageWidth} object-cover p-3`}
         alt={product.name}
       />
 <div className="flex flex-col ml-3">

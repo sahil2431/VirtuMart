@@ -69,7 +69,12 @@ const Home = () => {
       )}
         <div className="flex flex-wrap text-black justify-center">
           {products.map((product) => (
-            <Card key={product._id} product={product} />
+            <Card 
+            width='md:w-72 xs:w-52 w-40'
+            height="md:h-96 xs:h-80 h-72"
+            imageHeight="md:h-72 xs:h-52 h-40"
+            key={product._id} 
+            product={product} />
           ))}
         </div>
       {animate && <motion.div 

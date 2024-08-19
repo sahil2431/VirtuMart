@@ -82,16 +82,17 @@ const CartPage = () => {
               className="flex justify-between items-center mb-4"
             >
               <Card
-                className={"flex flex-grow gap-10 items-center sticky"}
-                width="w-[70vw]"
+                className={"xs:flex flex-grow lg:gap-10 sm:gap-3 gap-1 items-center sticky "}
+                width="lg:w-[70vw] w-[70vw] xs:w-[90vw]"
                 product={item.product[0]}
-                height="h-[30vh]"
-                imageHeight="h-[29vh]"
+                height="md:h-[30vh] xs:h-[20vh] h-[32vh]"
+                imageHeight="md:h-[29vh] h-[18vh]"
+                imageWidth="md:w-[29vh] w-[18vh]"
                 price={item.price}
                 isQuantity={true}
                 quantity={item.quantity}
               />
-              <div className="absolute right-[20vw] flex flex-col gap-5 justify-center items-center">
+              <div className="absolute lg:right-[20vw] xs:right-[10vw] right-[16vw] flex flex-col gap-5 justify-center items-center">
                 <Quantity
                 
                   initialQuantity={item.quantity}
