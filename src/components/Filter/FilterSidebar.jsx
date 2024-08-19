@@ -25,6 +25,7 @@ const FilterSidebar = ({
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedPrice, setSelectedPrice] = useState(null);
   const [selectedAvailability, setSelectedAvailability] = useState(null);
+  const [filterVisible , setFilterVisible] = useState(false)
  
   const navigate = useNavigate()
   
@@ -106,15 +107,23 @@ const FilterSidebar = ({
         ])
         fetchCategories()
     } ,[])
+
+    
   return ( 
-    <div className="w-[20vw] bg-black border-2 border-white">
-      <div className="w-[20vw] flex justify-center items-center p-4">
-        <SearchBar width="[10vw]" />
+    <>
+    <div className={`xl:w-[20vw] sm:w-[25vw] bg-black border-2 border-white sm:h-[92vh] h-[30vh] sm:block  `}>
+    <div className={`sm:w-[25vw] xl:w-[20vw] flex justify-center items-center p-4`}>
+        <SearchBar width={`md:w-[15vw] sm:w-[20vw]`} />
       </div>
-      <ul className="text-white p-2 min-h-[70vh]">
+      <ul className="text-white p-2 sm:min-h-[70vh] sm:flex sm:flex-col grid grid-cols-2">
         <li>
           <button
-          onClick={() => setIsCategories(!isCategories)}
+          onClick={() => {
+            setIsCategories(!isCategories)
+            setIsPrice(false)
+            setIsRating(false)
+            setIsAvailable(false)
+          }}
             type="button"
             className="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             aria-controls="dropdown-example"
@@ -141,7 +150,7 @@ const FilterSidebar = ({
           </button>
           {isCategories && (
             
-            <Filter array={categories} onClick={(value) => setSelectedCategory(value)} clearSelection={clearSelection}/>
+            <Filter array={categories} selectedValue={selectedCategory} onClick={(value) => setSelectedCategory(value)} clearSelection={clearSelection}/>
             
           )
           }
@@ -149,7 +158,12 @@ const FilterSidebar = ({
 
         <li>
           <button
-          onClick={() => setIsPrice(!isPrice)}
+          onClick={() => {
+            setIsCategories(false)
+            setIsPrice(!isPrice)
+            setIsRating(false)
+            setIsAvailable(false)
+          }}
             type="button"
             className="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             aria-controls="dropdown-example"
@@ -176,7 +190,7 @@ const FilterSidebar = ({
           </button>
           {
             isPrice && (
-              <Filter array={prices} onClick={(value) => setSelectedPrice(value)} clearSelection={clearSelection}/>
+              <Filter array={prices} selectedValue={selectedPrice} onClick={(value) => setSelectedPrice(value)} clearSelection={clearSelection}/>
             )
           }
         </li>
@@ -184,7 +198,12 @@ const FilterSidebar = ({
         <li>
           <button
             type="button"
-            onClick={() => setIsAvailable(!isAvailable)}
+            onClick={() => {
+              setIsCategories(false)
+              setIsPrice(false)
+              setIsRating(false)
+              setIsAvailable(!isAvailable)
+            }}
             className="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             aria-controls="dropdown-example"
             data-collapse-toggle="dropdown-example"
@@ -210,7 +229,7 @@ const FilterSidebar = ({
           </button>
           {
             isAvailable && (
-              <Filter array={available} onClick={(value) => setSelectedAvailability(value)} clearSelection={clearSelection}/>
+              <Filter array={available} selectedValue={selectedAvailability} onClick={(value) => setSelectedAvailability(value)} clearSelection={clearSelection}/>
             )
           }
         </li>
@@ -218,7 +237,12 @@ const FilterSidebar = ({
         <li>
           <button
             type="button"
-            onClick={() => setIsRating(!isRating)}
+            onClick={() => {
+              setIsCategories(false)
+              setIsPrice(false)
+              setIsRating(!isRating)
+              setIsAvailable(false)
+            }}
             className="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             aria-controls="dropdown-example"
             data-collapse-toggle="dropdown-example"
@@ -244,7 +268,7 @@ const FilterSidebar = ({
           </button>
           {
             isRating && (
-              <Filter array={ratings} onClick={(value) => setSelectedRating(value)} clearSelection={clearSelection}/>
+              <Filter array={ratings} selectedValue={selectedRating} onClick={(value) => setSelectedRating(value)} clearSelection={clearSelection}/>
             )
           }
         </li>
@@ -261,6 +285,7 @@ const FilterSidebar = ({
         className={"hover:scale-110"} />
       </div>
     </div>
+    </>
   );
 };
 

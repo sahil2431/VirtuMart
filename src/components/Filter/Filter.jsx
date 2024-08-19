@@ -1,7 +1,7 @@
 import React , {useEffect, useState} from "react";
 import { motion } from "framer-motion";
 
-const Filter = ({ array = [], onClick , clearSelection }) => {
+const Filter = ({ array = [], onClick , clearSelection  , selectedValue}) => {
   const [selected, setSelected] = useState(null);
   const handleOption = (e) => {
     if(selected === e.target.textContent) {
@@ -23,16 +23,16 @@ const Filter = ({ array = [], onClick , clearSelection }) => {
       initial={{ opacity: 0, y: -30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-wrap gap-2 p-4 rounded-lg bg-gray-700"
+      className="flex flex-col gap-2 p-4 rounded-lg bg-gray-700 sm:relative absolute sm:w-full w-[50vw] z-10 "
     >
       {array.length > 0 &&
         array.map((value) => (
           <div
             onClick={handleOption}
             key={value._id}
-            className={`${selected === value.name ? "bg-gray-500" : "bg-black"} p-2 rounded-2xl cursor-pointer`}
+            className={`${selected === value.name || selectedValue === value.name ? "bg-gray-500" : "bg-black"} p-2 rounded-2xl cursor-pointer`}
           >
-            <h1 className="text-sm">{value.name}</h1>
+            <h1 className="text-sm ">{value.name}</h1>
           </div>
         ))}
     </motion.div>

@@ -5,7 +5,7 @@ import { Loading } from '../components';
 import FilterSidebar from '../components/Filter/FilterSidebar';
 import { useSearchParams } from "react-router-dom";
 import { filterProducts, getProduct, getProductByCategory, productSearch } from '../features/productSlice';
-
+import SearchBar from '../components/Home/SearchBar';
 
 const ProductsPage = () => {
     const {products}  = useSelector((state) => state.product);
@@ -49,17 +49,19 @@ const ProductsPage = () => {
   return (
     <div className='min-h-[65vh]'>
 
-      <div className='flex'>
+      <div className='flex flex-col sm:flex-row'>
 
       <FilterSidebar  />
 
 
 {products.length === 0 && (
         <div className="flex justify-center items-center min-h-[20vh] w-[80vw]">
+          
         <p className="text-red-500 text-2xl font-bold">No Product Found</p>
         </div>
       )}
       <div className="flex flex-wrap text-black justify-center">
+      
           {products.map((product) => (
             <Card key={product._id} product={product} />
           ))}
