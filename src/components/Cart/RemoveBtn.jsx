@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { MdDelete } from "react-icons/md";
 const RemoveBtn = ({
   className = "",
   removeId,
@@ -7,9 +7,9 @@ const RemoveBtn = ({
 }) => {
   return (
     <button
-    className={`bg-red-500 ${className} w-24 p-2 font-bold rounded-lg`} 
+    className={` ${className} font-bold rounded-lg`} 
     onClick={() => onRemove(removeId)}>
-      Remove
+      <MdDelete color='red' size={"50px"} />
       </button>
   )
 }

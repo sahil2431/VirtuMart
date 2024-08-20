@@ -104,13 +104,13 @@ const OrderPage = () => {
           <h1 className="text-3xl font-bold text-center py-10">
             Order Summary
           </h1>
-          <div className="flex flex-col items-center gap-1 pb-9">
+          <div className="flex flex-col items-center gap-3 pb-9">
             {cart?.map((item) => (
               <div
                 key={item._id}
-                className="flex justify-between w-[55vw] border-2 border-white p-3"
+                className="flex max-xs:flex-col max-xs:items-center max-xs:gap-4 justify-between md:w-[55vw] xs:w-[70vw] w-[75vw] border-2 border-white p-3"
               >
-                <h1 className="text-xl">{item.product[0].name}</h1>
+                <h1 className="max-xs:font-semibold max-xs:text-center xs:text-xl text-lg">{item.product[0].name}</h1>
                 <div className="flex flex-col w-28">
                   <div>
                     Rs {item.price} * {item.quantity}

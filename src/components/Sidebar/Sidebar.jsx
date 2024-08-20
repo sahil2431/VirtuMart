@@ -183,7 +183,14 @@ const Sidebar = ({
                   <li key={index}>
                     <Link
                       to={item.slug}
-                      onClick={() => setClose(!close)}
+                      onClick={() => {
+                        if(item.name === "Logout"){
+                          handleLogout();
+                          
+                        }
+                        setClose(!close)
+
+                      }}
                       className="flex gap-2"
                     >
                       <img src={item?.avatar} alt="" />

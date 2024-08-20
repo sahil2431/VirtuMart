@@ -32,10 +32,10 @@ const Card = ({
         alt={product.name}
       />
 <div className="flex flex-col ml-3">
-      <h3 className="text-xl">{product.name}</h3>
-      <h3 className="text-lg">Rs {price}</h3>
-      {orderedDate === null ? <h3 className="text-xl font-semibold">Free Deleivery</h3> : <div><h3 className="text-xl font-semibold">Ordered :{orderedDate}</h3>
-      <h3 className="text-xl">{product.status}</h3>
+      <h3 className="md:text-xl text-lg">{product.name}</h3>
+      <h3 className="md:text-lg text-sm">Rs {price}</h3>
+      {orderedDate === null ? <h3 className="md:text-xl text-sm font-semibold">Free Deleivery</h3> : <div><h3 className="text-xl font-semibold">Ordered :{orderedDate}</h3>
+      <h3 className="md:text-xl text-lg">{product.status}</h3>
       </div>}
       </div>
     </div>

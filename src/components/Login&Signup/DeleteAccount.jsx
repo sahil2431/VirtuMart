@@ -27,7 +27,7 @@ const DeleteAccount = () => {
       <form className="flex flex-col gap-3 text-lg items-center mt-8">
         <label >Enter Password</label>
         <input 
-        className="text-white w-[25vw] rounded-md h-8 bg-slate-700 p-5 "
+        className="text-white md:w-[35vw] w-[60vw] rounded-md h-8 bg-slate-700 p-5 "
         onChange={(e) => setPassword(e.target.value)}
         type="password" 
         placeholder="Password" 
@@ -35,14 +35,14 @@ const DeleteAccount = () => {
 
         <label htmlFor="">Confirm Password</label>
         <input 
-        className="text-white w-[25vw] rounded-md h-8 bg-slate-700 p-5 "
+        className="text-white md:w-[35vw] w-[60vw] rounded-md h-8 bg-slate-700 p-5 "
         onChange={(e) => setConfirmPassword(e.target.value)}
         type="password" 
         placeholder="Confirm Password" 
         />
 
         <button
-        className="mt-10 w-[15vw] text-center bg-red-700 rounded-md p-3 cursor-pointer"
+        className="mt-10 lg:w-[15vw]  text-center bg-red-700 rounded-md p-3 cursor-pointer"
         onClick={handleDeleteAccount}
         >Delete Account
         </button>

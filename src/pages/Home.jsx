@@ -70,8 +70,8 @@ const Home = () => {
         <div className="flex flex-wrap text-black justify-center">
           {products.map((product) => (
             <Card 
-            width='md:w-72 xs:w-52 w-40'
-            height="md:h-96 xs:h-80 h-72"
+            width='md:w-72 xs:w-56 w-40'
+            height="md:h-96 xs:h-[300px] h-[260px]"
             imageHeight="md:h-72 xs:h-52 h-40"
             key={product._id} 
             product={product} />

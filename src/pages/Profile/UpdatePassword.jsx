@@ -46,7 +46,7 @@ const UpdatePassword = () => {
       </h2>
 
       <div className="min-h-[40vh] flex flex-col gap-3 justify-center items-center">
-        <div className="flex flex-col w-1/4">
+        <div className="flex flex-col md:w-1/4 w-1/2">
         <label className="text-sm p-3">Old Password</label>
         <input
           value={oldPassword}
@@ -59,7 +59,7 @@ const UpdatePassword = () => {
         />
         </div>
 
-        <div className="flex flex-col w-1/4">
+        <div className="flex flex-col md:w-1/4 w-1/2">
 
         <label className="text-sm p-3">New Password</label>
         <input
@@ -75,7 +75,7 @@ const UpdatePassword = () => {
 
         <input
           onClick={handlePasswordUpdate}
-          className={`text-center ${isSubmitting ? "bg-red-300" : "bg-red-600"} rounded-md p-3 cursor-pointer`}
+          className={`text-center ${isSubmitting ? "bg-red-300" : "bg-red-600"} mt-5 rounded-md p-3 cursor-pointer`}
           type="button"
           value={isSubmitting ? "Please Wait" : 'Update pasword'}
           disabled = {isSubmitting}

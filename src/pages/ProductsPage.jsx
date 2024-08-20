@@ -64,9 +64,11 @@ const ProductsPage = () => {
       
           {products.map((product) => (
             <Card 
-            width='md:w-72 xs:w-52 w-40'
-            height="md:h-96 xs:h-80 h-72"
-            imageHeight="md:h-72 xs:h-52 h-40"
+            className={"flex md:block lg:gap-10 sm:gap-3 gap-1 items-center"}
+            width='md:w-72 sm:w-[50vw] xs:w-[70vw] w-[90vw]'
+            height="md:h-96 xs:h-[20vh] h-[25vh]"
+            imageHeight="md:h-72 xs:h-[18vh] "
+            imageWidth='md:w-72 xs:w-[18vw] w-[40vw]'
             key={product._id} 
             product={product} 
             />

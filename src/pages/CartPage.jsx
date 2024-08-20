@@ -9,6 +9,7 @@ import {
   RemoveBtn,
   BackBtn
 } from "../components/index"
+import { toast } from "react-toastify";
 
 
 const CartPage = () => {
@@ -43,12 +44,18 @@ const CartPage = () => {
 
   const handleProductRemove = async (productId) => {
     const data = await removeItem(productId);
-    setCartFetched(false);
-    setRemovalMessage(data.message);
-    setShowMessage(true);
-    setTimeout(()=>{
-      setShowMessage(false);
-    }, 3000)
+    if(data.statusCode) {
+      toast.success(data.message)
+      setCartFetched(false);
+      setRemovalMessage(data.message);
+      setShowMessage(true);
+      setTimeout(()=>{
+        setShowMessage(false);
+      }, 3000)
+
+    }else{
+      toast.error("Something went wrong")
+    }
 
   }
 

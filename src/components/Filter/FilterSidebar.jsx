@@ -111,7 +111,7 @@ const FilterSidebar = ({
     
   return ( 
     <>
-    <div className={`xl:w-[20vw] sm:w-[25vw] bg-black border-2 border-white sm:h-[92vh] h-[30vh] sm:block  `}>
+    <div className={`xl:w-[20vw] sm:w-[25vw] bg-black border-2 border-white sm:h-[92vh] h-[40vh] sm:block  `}>
     <div className={`sm:w-[25vw] xl:w-[20vw] flex justify-center items-center p-4`}>
         <SearchBar width={`md:w-[15vw] sm:w-[20vw]`} />
       </div>

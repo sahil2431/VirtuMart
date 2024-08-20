@@ -25,20 +25,20 @@ const OrdersCard = ({ order }) => {
           key={product._id}
           to={`/orderDetails/${user.userId}/${order._id}/${product._id}`}
         >
-          <div className="m-5 card flex flex-grow gap-10 items-center sticky bg-gray-300 rounded-md h-[30vh] w-[70vw] cursor-pointer">
+          <div className="m-5 card flex flex-grow lg:gap-10 gap-4 items-center sticky bg-gray-300 rounded-md sm:h-[30vh] h-[20vh] sm:w-[70vw] w-[90vw] cursor-pointer">
             <img
               src={product.images[0]}
-              className={`h-[29vh] w-72 object-cover p-3`}
+              className={`md:h-[29vh] md:w-72 sm:h-40 sm:w-48 h-24 w-28 object-cover p-3`}
               alt={product.name}
             />
 
             <div className="flex flex-col ml-3">
-              <h3 className="text-xl">{product.name}</h3>
-              <h3 className="text-lg">Rs {product.price}</h3>
-              <h3 className="text-xl font-semibold">
+              <h3 className="text-lg">{product.name}</h3>
+              <h3 className="text-sm">Rs {product.price}</h3>
+              <h3 className="lg:text-lg text-sm font-semibold">
                 Ordered :{formattedDate} {formattedTime}
               </h3>
-              <h3 className="text-xl">{product.status}</h3>
+              <h3 className="lg:text-lg text-sm">{product.status}</h3>
             </div>
           </div>
         </Link>

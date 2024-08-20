@@ -55,17 +55,17 @@ const OrderDetail = () => {
           <h1 className=' text-center font-bold text-2xl p-3'>Order Details</h1>
           <div className='flex flex-col '>
             <div className='flex flex-col gap-2 border-2 bg-gray-900 border-gray-500 p-5 mx-16 my-5'>
-              <h2 className='text-xl font-bold'>Delivery address</h2> 
+              <h2 className='md:text-xl text-lg font-bold'>Delivery address</h2> 
               <h3 className='font-bold'>{address.name}</h3>
               <p>{address.address1} {address.address2} , {address.district} , {address.state} , {address.pincode}</p>
               <h3>Phone number : {address.phone}</h3>
             </div>
 
-            <div className='flex gap-2 items-center justify-between border-2 bg-gray-900 border-gray-500 p-5 mx-16 my-5'>
-              <div className='flex gap-5'>
+            <div className='flex md:flex-row flex-col gap-2 md:items-center justify-between border-2 bg-gray-900 border-gray-500 p-5 mx-16 my-5'>
+              <div className='flex md:flex-row flex-col  gap-5'>
 
               <img 
-              className='h-48 w-80 object-cover rounded-md'
+              className='xs:h-48 h-32 w-60 object-cover rounded-md mx-auto'
               src={order.productDetails[0].images[0]} 
               alt="" />
               <div className='flex flex-col gap-1'>
@@ -73,8 +73,8 @@ const OrderDetail = () => {
               <p>{order.productDetails[0].discription}</p>
               <h3>Qunatity Order : {order.quantity}</h3>
               <h3 className='font-bold'>{order.status}</h3>
-              <h3>Ordered : {formattedDate} , {formattedTime}</h3>
-              <h3 className='font-bold text-xl mt-5'>Rs {order.productDetails[0].price} * {order.quantity} = Rs {order.productDetails[0].price * order.quantity}</h3>
+              <h3 className='md:text-lg text-sm'>Ordered : {formattedDate} , {formattedTime}</h3>
+              <h3 className='font-bold sm:text-xl mt-5 text-sm'>Rs {order.productDetails[0].price} * {order.quantity} = Rs {order.productDetails[0].price * order.quantity}</h3>
              
               </div>
               </div>
@@ -83,7 +83,7 @@ const OrderDetail = () => {
                 <input 
                 type="button" 
                 value="Cancel Order" 
-                className='bg-red-500 text-white font-bold p-5 h-16 rounded-md cursor-pointer'/>
+                className='bg-red-500   text-white font-bold p-5 h-16 rounded-md cursor-pointer'/>
               )}
             </div>
             <div className='flex justify-center items-center p-5'>

@@ -105,8 +105,8 @@ const ProductDetail = ({product , onProductChange}) => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        nextArrow: <NextArrow />,
-        prevArrow: <PreviousArrow />,
+        nextArrow: <NextArrow className={"md:block hidden"} />,
+        prevArrow: <PreviousArrow className={"md:block hidden"}/>,
       };
       if(isLoading) {
         return <Loading/>

@@ -29,12 +29,12 @@ const AddAddress = () => {
         <h2 className="text-green-600 text-lg">Address added successfully</h2>
       )}
       <form
-        className="w-1/2 flex flex-col gap-3"
+        className="lg:w-1/2 w-[70vw] flex flex-col gap-3"
         onSubmit={handleSubmit(onSubmit)}
       >
         <h3 className="text-lg  ">Name</h3>
         <input
-          className="text-white w-1/2 rounded-md h-8 bg-slate-700 "
+          className="text-white md:w-1/2 w-3/4 rounded-md h-8 bg-slate-700 "
           {...register("name", {
             required: { value: true, message: "Name is required" },
           })}
@@ -44,7 +44,7 @@ const AddAddress = () => {
         )}
         <h3 className="text-lg">Address1</h3>
         <input
-          className="text-white w-1/2 rounded-md h-8 bg-slate-700 "
+          className="text-white md:w-1/2 w-3/4 rounded-md h-8 bg-slate-700 "
           type="text"
           {...register("address1", {
             required: { value: true, message: "Address1 is required" },
@@ -56,7 +56,7 @@ const AddAddress = () => {
 
         <h3 className="text-lg">Address2</h3>
         <input
-          className="text-white w-1/2 rounded-md h-8 bg-slate-700 "
+          className="text-white md:w-1/2 w-3/4 rounded-md h-8 bg-slate-700 "
           type="text"
           {...register("address2")}
         />
@@ -66,7 +66,7 @@ const AddAddress = () => {
 
         <h3 className="text-lg">District</h3>
         <input
-          className="text-white w-1/2 rounded-md h-8 bg-slate-700 "
+          className="text-white md:w-1/2 w-3/4 rounded-md h-8 bg-slate-700 "
           type="text"
           {...register("district", {
             required: { value: true, message: "District is required" },
@@ -78,7 +78,7 @@ const AddAddress = () => {
 
         <h3 className="text-lg">State</h3>
         <input
-          className="text-white w-1/2 rounded-md h-8 bg-slate-700 "
+          className="text-white md:w-1/2 w-3/4 rounded-md h-8 bg-slate-700 "
           type="text"
           {...register("state", {
             required: { value: true, message: "State is required" },
@@ -90,7 +90,7 @@ const AddAddress = () => {
 
         <h3 className="text-lg">Pincode</h3>
         <input
-          className="text-white w-1/2 rounded-md h-8 bg-slate-700 "
+          className="text-white md:w-1/2 w-3/4 rounded-md h-8 bg-slate-700 "
           type="text"
           {...register("pincode", {
             required: { value: true, message: "Pincode is required" },
@@ -102,7 +102,7 @@ const AddAddress = () => {
         <h3 className="text-lg">Phone number</h3>
 
         <input
-          className="text-white w-1/2 rounded-md h-8 bg-slate-700 "
+          className="text-white md:w-1/2 w-3/4 rounded-md h-8 bg-slate-700 "
           type="phone"
           {...register("phone", {
             required: { value: true, message: "Phone number is required" },
@@ -112,10 +112,10 @@ const AddAddress = () => {
           <div className="text-red-500 text-lg">{errors.phone.message}</div>
         )}
 
-        <div className="butto w-1/2 text-center mt-4">
+        <div className="butto md:w-1/2 w-3/4 text-center mt-4">
           <input
             disabled={isSubmitting}
-            className="w-1/2 text-center bg-red-900 rounded-md h-8 p-1 cursor-pointer"
+            className="md:w-1/2 w-3/4 text-center bg-red-900 rounded-md h-8 p-1 cursor-pointer"
             type="submit"
             value="Add Address"
           />

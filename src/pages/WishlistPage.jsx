@@ -3,6 +3,7 @@ import Card from '../components/Products/Card'
 import { fetchWishlist, removeProduct } from '../features/api/wishlist'
 import RemoveBtn from '../components/Cart/RemoveBtn'
 import { Loading } from '../components'
+import { toast } from 'react-toastify'
 
 const WishlistPage = () => {
 
@@ -29,11 +30,17 @@ const WishlistPage = () => {
 
     const handleProductRemove = async (productId)=> {
       const data = await removeProduct(productId)
-      setWishlistFetched(false);
-      setIsRemoved(true)
-      setTimeout(()=>{
-        setIsRemoved(false)
-      }, 3000)
+      if(data.statusCode) {
+        toast.success(data.message)
+        setWishlistFetched(false);
+        setIsRemoved(true)
+        setTimeout(()=>{
+          setIsRemoved(false)
+        }, 3000)
+
+      }else {
+        toast.error("Something went wrong")
+      }
       
     }
 

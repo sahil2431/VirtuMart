@@ -89,7 +89,8 @@ const removeItem = async (cartId) => {
       data: { cartId },
     })
     .then((res) => {
-      return "Item removed successfully";
+
+      return res.data;
     })
     .catch((err) => {
       console.log(err.message);

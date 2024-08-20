@@ -18,16 +18,16 @@ const UserDashboard = () => {
 
   return (
     <div className=" bg-gray-800 text-white">
-      <div className="p-4">
+      <div className="p-4 flex justify-center flex-col items-center">
         
         {!isLoggedIn && (<NotLoggedIn/>)}
         {isLoggedIn && (
-          <div>
-            <h2 className="text-center text-2xl font-bold">
+          <div className='flex md:w-[40vw] flex-col justify-center gap-10 bg-black rounded-lg p-3'>
+            <h2 className=" text-center text-2xl font-bold">
               Welcome {user.name}
             </h2>
 
-            <ul className="min-h-[55.7vh] w-[15vw] mt-16 ml-28 space-y-2 flex flex-col gap-5">
+            <ul className="min-h-[55.7vh] lg:w-[15vw] md:w-[30vw] xs:w-[50vw] w-[60vw] space-y-2 flex flex-col gap-5 pl-6">
             <Link
                 to={`/accountInformation/${user.userId}/${user._id}`}
                 label="User details"
@@ -83,13 +83,13 @@ const UserDashboard = () => {
               </div>
             </ul>
 
-            <div className='text-center p-10'>
-            <BackBtn/>
-            </div>
 
             
           </div>
         )}
+            <div className='text-center p-10'>
+            <BackBtn/>
+            </div>
       </div>
     </div>
   );
