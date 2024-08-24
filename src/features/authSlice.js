@@ -118,18 +118,23 @@ const authSlice = createSlice({
         toast.error("Error while loggin")
       })
       .addCase(signup.pending, (state) => {
+        state.error = "";
         state.isLoading = true;
       })
       .addCase(signup.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.isLoading = false;
-
+        toast.success("Signup successfull! Please verify your email.")
         state.message = action.payload.message;
       })
       .addCase(signup.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        if(action.error.message.includes('409')){
+          state.error = "Username , email or mobile is already taken.";
+
+        }
         console.log(action.error.message);
+        toast.error("Error while signup")
         state.isLoggedIn = false;
       })
       .addCase(logout.pending, (state) => {

@@ -38,10 +38,13 @@ const OrderDetail = () => {
           setAddress(data.data.address[0])
         }
         else {
-          setError(data.message)
+          setError("Something went wrong")
+          
+
         }
-      } catch (error) {
-        setError(error)
+      } catch (err) {
+        setError("Something went wrong")
+        
       }
     }
 

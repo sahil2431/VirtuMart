@@ -42,8 +42,8 @@ const getOrderById = async(orderId , productId) => {
         return res.data
     })
     .catch((err) => {
-        console.log(err.response.data)
-        return err.response.data
+        console.log(err.response)
+        return err.response
     })
 }
 

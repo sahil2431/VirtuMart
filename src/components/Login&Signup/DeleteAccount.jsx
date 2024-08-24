@@ -4,15 +4,20 @@ import { deleteAccount } from '../../features/authSlice'
 import { Link } from'react-router-dom';
 import NotLoggedIn from './NotLoggedIn';
 import BackBtn from '../BackBtn';
+import { toast } from 'react-toastify';
 const DeleteAccount = () => {
     const [password, setPassword]  = useState('')
     const [confirmPassword, setConfirmPassword]  = useState('')
 
     const {isLoggedIn} = useSelector((state) => state.auth)    
     const dispatch = useDispatch()
-    const handleDeleteAccount = async () =>{
-        if(password !== confirmPassword) {
-            alert("Passwords do not match")
+    const handleDeleteAccount = async (e) =>{
+      if(password === '' || confirmPassword === '') {
+        toast.error("Please fill all details")
+        console.log(password , confirmPassword)
+      }
+       else if(password !== confirmPassword) {
+            toast.error("Passwords do not match")
         } else {
           console.log(password)
             dispatch(deleteAccount(password))
@@ -41,11 +46,13 @@ const DeleteAccount = () => {
         placeholder="Confirm Password" 
         />
 
-        <button
+        <input
+        value={"Delete Account"}
+        type='button'
         className="mt-10 lg:w-[15vw]  text-center bg-red-700 rounded-md p-3 cursor-pointer"
         onClick={handleDeleteAccount}
-        >Delete Account
-        </button>
+        />
+      
       </form>
       <div className='flex justify-center items-center my-5'>
 

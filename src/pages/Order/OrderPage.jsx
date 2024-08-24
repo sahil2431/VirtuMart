@@ -6,6 +6,7 @@ import { addOrder } from "../../features/api/order";
 import { createOrder, verifyPayment } from "../../features/api/payment";
 import {toast} from "react-toastify"
 import { useSelector } from "react-redux";
+import ClipLoader from "react-spinners/ClipLoader";
 import {
   AddressCard,
   BackBtn
@@ -129,10 +130,15 @@ const OrderPage = () => {
       <div className="flex justify-between p-5">
         <BackBtn />
         <button
+        disabled={isLoading}
           onClick={handleOrder}
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded text-center"
+          className={`${isLoading ? "bg-red-400" : "bg-red-600"} hover:bg-red-700 text-white font-bold py-2 px-4 rounded text-center`}
         >
-          {isLoading ? "Processing...." : "Confirm Order"}
+          {isLoading ? (<>
+          <div className="flex justify-center items-center gap-4">
+          <ClipLoader color="white" loading={true} size={20} />
+          <h1>Processing</h1>
+           </div></>) : "Confirm Order"}
         </button>
       </div>
     </div>

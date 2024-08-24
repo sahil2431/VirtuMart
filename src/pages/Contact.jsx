@@ -42,8 +42,17 @@ const Contact = () => {
   return (
     <section className="bg-gray-800 min-h-[65vh] text-white p-8">
       <h2 className="text-3xl font-bold text-center py-6">Contact Us</h2>
+
+      <div className="mt-8 flex flex-col justify-center items-center gap-5">
+          <p className="sm:w-[60vw] w-[80vw] border-2 bg-black px-6 py-3 rounded-lg">Phone: (123) 456-7890</p>
+          
+          <p className="sm:w-[60vw] w-[80vw] border-2 bg-black px-6 py-3 rounded-lg">Email: owner@example.com</p>
+          <p className="sm:w-[60vw] w-[80vw] border-2 bg-black px-6 py-3 rounded-lg">Address: 123 Main St, Anytown, USA</p>
+
+        </div>
       <div className="max-w-2xl mx-auto">
         
+      <h2 className="text-2xl font-bold text-center py-6">Message Us</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="name" className="block mb-1">Name:</label>

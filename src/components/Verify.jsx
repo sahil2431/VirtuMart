@@ -28,7 +28,7 @@ function Verify() {
       setIsVerified(false)
       setMessage( error || "Email is not verified")
     }
-  } , [])
+  } , [token])
 
  
 

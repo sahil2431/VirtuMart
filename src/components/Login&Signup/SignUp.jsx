@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signup } from "../../features/authSlice";
-import { Navigate } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
+
 const SignUp = () => {
   const {
     register,
@@ -11,7 +12,7 @@ const SignUp = () => {
     watch,
     setError,
 
-    formState: { errors, isSubmitting },
+    formState: { errors , isSubmitting },
   } = useForm();
 
   const {isLoggedIn} = useSelector((state) => state.auth)
@@ -27,6 +28,7 @@ const SignUp = () => {
   const onSubmit = async (data) => {
     setIsRefreshed(true);
     dispatch(signup(data))
+
   };
 
   const navigate = useNavigate()
@@ -104,16 +106,24 @@ const SignUp = () => {
               {errors.password.message}
             </div>
           )}
-          <div className="butto lg:w-1/2 w-3/4 text-center mt-4">
+          <div className="button lg:w-1/2 w-3/4 text-center mt-4">
             <input
               disabled={isSubmitting}
-              className="w-1/2 text-center bg-red-900 rounded-md h-8 p-1 cursor-pointer"
+              className={`w-1/2 text-center ${isSubmitting ? "bg-red-400" : "bg-red-900"} rounded-md h-8 p-1 cursor-pointer`}
               type="submit"
-              value="SignUp"
+              value=
+              "Submit"
+            
             />
             {isSubmitting && (
-              <div className="text-white text-lg">Submitting...</div>
-            )}
+              <>
+              <ClipLoader color="white" size={20}/> Please wait....
+
+              </>
+            )
+              
+            }
+            
           </div>
         </form>
 
